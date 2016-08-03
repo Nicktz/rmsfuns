@@ -1,0 +1,19 @@
+Package: rmsfuns
+Title: rmsfuns is a collection of miscellaneous functions that can be used in R. 
+Version: 0.0.0.1
+Authors@R: person("Nico", "Katzke", email = "nfkatzke@gmail.com", role = c("aut", "cre"))
+Description: rmsfuns is a collection of miscellaneous functions that can be used in R. 
+    It contains several helper functions, including easily building folder paths, viewing dataframes 
+	in excel, and several others.
+Maintainer: Nico Katzke <nfkatzke@gmail.com>
+Imports:
+    tidyr,
+	readr,
+    dplyr
+Suggests:
+	xts
+Depends: R (>= 3.2.1)
+License: GPL-3
+LazyData: TRUE
+VignetteBuilder: knitr
+RoxygenNote: 5.0.1
