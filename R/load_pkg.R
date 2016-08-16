@@ -15,6 +15,6 @@ load_pkg <- function(packagelist) {
 
 # load packages into R:
   # load packages into R:
-  lapply(packagelist, library, character.only = TRUE, quietly = T)
+  lapply(packagelist, require, character.only = TRUE, quietly = T)
 
 }
