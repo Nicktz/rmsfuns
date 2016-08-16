@@ -21,12 +21,13 @@ This function builds the entire folder path provided by the user. If the path do
 ViewXL
 ------
 
-This function makes it easy to quickly view any R object or dataframe in excel. A random file is created in R's temporary folder location (see tempdir() to find your location). The excel file location can also be overridden using the FilePath command.
+This function makes it easy to quickly view any R object or dataframe in excel. A random file is created in R's temporary folder location (see tempdir() to find your location). The excel file location can also be overridden using the FilePath command. IMPORTANT: if using a mac, set mac = TRUE in the command (equal to FALSE by default).
 
     library(rmsfuns)
     df <- data.frame(date = seq(as.Date("2012-01-01"),
                             as.Date("2015-08-18"),"day"), x = rnorm(1326, 10,2))
     ViewXL(df)
+    # ViewXL(df, mac = TRUE) if using a mac
 
 To clean the R temporary file folder (done periodically if using ViewXL often - especially with large excel files), use CleanTempFolder:
 

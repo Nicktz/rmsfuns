@@ -3,13 +3,15 @@
 #' @param DataFrame This is the dataframe or tbl_df that will be displayed in excel
 #' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be created.
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
+#' @param mac FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.
 #' @return Chosen data frame or tbl_df opened directly in excel.
 #' @examples ViewXL(data.frame)
 #' @export
 
-ViewXL <- function(DataFrame, FilePath, ViewTempFile = TRUE) {
+ViewXL <- function(DataFrame, FilePath, ViewTempFile = TRUE, mac = FALSE) {
 
-  library(readr)
+  library(rmsfuns)
+  load_pkg("readr")
 
   if ( missing(FilePath) ) {
     FilePath <- paste0(tempfile(), ".csv")
@@ -18,7 +20,20 @@ ViewXL <- function(DataFrame, FilePath, ViewTempFile = TRUE) {
     build_path(file.path(FilePath,FolderName))
     write_csv(DataFrame,paste0(FilePath))
   }
-  if (ViewTempFile) {
+
+  if(mac & ViewTempFile){
+    shell.exec.mac <- function(x){
+      # replacement for shell.exe (doesn't exist on Mac). Thanks Christiaan Bothma for picking this up.
+      if (exists("shell.exec",where = "package:base"))
+        return(base::shell.exec(x))
+      comm <- paste("open",x)
+      return(system(comm))
+    }
+    shell.exec.mac(paste0(FilePath))
+  }
+
+  if (mac == FALSE & ViewTempFile) {
     shell.exec(paste0(FilePath))
   }
+
 }

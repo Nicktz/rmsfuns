@@ -4,7 +4,7 @@
 \alias{ViewXL}
 \title{ViewXL}
 \usage{
-ViewXL(DataFrame, FilePath, ViewTempFile = TRUE)
+ViewXL(DataFrame, FilePath, ViewTempFile = TRUE, mac = FALSE)
 }
 \arguments{
 \item{DataFrame}{This is the dataframe or tbl_df that will be displayed in excel}
@@ -12,6 +12,8 @@ ViewXL(DataFrame, FilePath, ViewTempFile = TRUE)
 \item{FilePath}{If left blank, tempfile will be used. If specified, the excel files will be created.}
 
 \item{ViewTempFile}{True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.}
+
+\item{mac}{FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.}
 }
 \value{
 Chosen data frame or tbl_df opened directly in excel.
