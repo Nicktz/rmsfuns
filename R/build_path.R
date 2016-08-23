@@ -22,4 +22,5 @@ build_path <- function(FilePath, Silent = TRUE) {
     message(paste0(FilePath, " successfully created"))
   }
 
+  FilePath
 }
