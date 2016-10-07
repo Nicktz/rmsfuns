@@ -4,12 +4,14 @@
 \alias{ViewXL}
 \title{ViewXL}
 \usage{
-ViewXL(DataFrame, FilePath, ViewTempFile = TRUE, mac = FALSE)
+ViewXL(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE)
 }
 \arguments{
 \item{DataFrame}{This is the dataframe or tbl_df that will be displayed in excel}
 
 \item{FilePath}{If left blank, tempfile will be used. If specified, the excel files will be created.}
+
+\item{FileName}{If specified to save csv file, this would be the name. If left blank and a FilePath has been specified, it would prompt the user to add a FileName.}
 
 \item{ViewTempFile}{True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.}
 

@@ -2,13 +2,14 @@
 #' @description Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
 #' @param DataFrame This is the dataframe or tbl_df that will be displayed in excel
 #' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be created.
+#' @param FileName If specified to save csv file, this would be the name. If left blank and a FilePath has been specified, it would prompt the user to add a FileName.
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
 #' @param mac FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.
 #' @return Chosen data frame or tbl_df opened directly in excel.
 #' @examples ViewXL(data.frame)
 #' @export
 
-ViewXL <- function(DataFrame, FilePath, ViewTempFile = TRUE, mac = FALSE) {
+ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE) {
 
   library(rmsfuns)
   load_pkg("readr")
@@ -17,9 +18,14 @@ ViewXL <- function(DataFrame, FilePath, ViewTempFile = TRUE, mac = FALSE) {
     FilePath <- paste0(tempfile(), ".csv")
     write_csv(DataFrame,paste0(FilePath))
   }else{
-    build_path(file.path(FilePath,FolderName))
-    write_csv(DataFrame,paste0(FilePath))
-  }
+    if(missing(FilePath)) {
+
+      FileName <- readline(cat("--------------- \n PROMPT: \n \n Please provide a csv filename to proceed... \n \n"))
+      if(!grepl(".csv", FileName)) FileName <- paste0(FileName, ".csv")
+      }
+  build_path(file.path(FilePath))
+  write_csv(DataFrame,paste0(FilePath, FileName))
+}
 
   if(mac & ViewTempFile){
     shell.exec.mac <- function(x){
