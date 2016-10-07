@@ -18,7 +18,7 @@ ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FAL
     FilePath <- paste0(tempfile(), ".csv")
     write_csv(DataFrame,paste0(FilePath))
   }else{
-    if(missing(FilePath)) {
+    if(missing(FileName)) {
 
       FileName <- readline(cat("--------------- \n PROMPT: \n \n Please provide a csv filename to proceed... \n \n"))
       if(!grepl(".csv", FileName)) FileName <- paste0(FileName, ".csv")
