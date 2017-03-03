@@ -11,8 +11,7 @@
 
 ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE) {
 
-  library(rmsfuns)
-  load_pkg("readr")
+  library(tidyverse)
 
   if ( missing(FilePath) ) {
     FilePath <- paste0(tempfile(), ".csv")
