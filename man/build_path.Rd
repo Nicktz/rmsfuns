@@ -7,9 +7,9 @@
 build_path(FilePath, Silent = TRUE)
 }
 \arguments{
-\item{FilePath}{A character string with the target folder path}
+\item{FilePath}{A character string with the target folder path. This can be a vector of multiple paths, e.g.: FilePath <- paste0( "C:/TestFolder/", c("Subfolder1","Subfolder2"))}
 
-\item{Silent}{True by default, if set to FALSE it shows the address of the folder just created.}
+\item{Silent}{True by default, if set to FALSE it shows the address of the folder just created. This is, however, saved if used as: Path <- build_path(FilePath), making the message largely redundant.}
 }
 \value{
 Path address just built.

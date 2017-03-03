@@ -18,6 +18,12 @@ This function builds the entire folder path provided by the user. If the path do
     library(rmsfuns)
     build_path("C:/Temp/data")
 
+Can also be used to build a vector of paths:
+
+    library(rmsfuns)
+    Path <- build_path(paste0("C:/Temp/data/", c("SubFolder1", "SubFolder2", "SubFolder3"))
+    print(Path)
+
 ViewXL
 ------
 
@@ -33,6 +39,24 @@ To clean the R temporary file folder (done periodically if using ViewXL often - 
 
     library(rmsfuns)
     CleanTempFolder()
+
+dateconverter
+-------------
+
+The dateconverter function makes it easy to create a date vector in R. It offers a simple wrapper using xts functionality to create a vector of dates between a given Start and End date, and then correcting for the chosen frequency transformation.
+
+It can do the following transformations between given Start and End Dates:
+
+alldays ; calendarEOM ; weekdays ; weekdayEOW ; weekdayEOM ; weekdayEOQ ; weekdayEOY
+
+    library(rmsfuns)
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "alldays") 
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdays") 
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "calendarEOM")
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOW")
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOM")
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOQ")
+    dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOY")
 
 PromptAsTime
 ------------

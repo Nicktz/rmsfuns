@@ -7,11 +7,10 @@ Description: rmsfuns is a collection of miscellaneous functions that can be used
 	in excel, and several others.
 Maintainer: Nico Katzke <nfkatzke@gmail.com>
 Imports:
-    tidyr,
-	readr,
-    dplyr
+    tidyverse,
+    xts
 Suggests:
-	xts
+	lubridate
 Depends: R (>= 3.2.1)
 License: GPL-3
 LazyData: TRUE
