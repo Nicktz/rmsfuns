@@ -21,6 +21,8 @@ This function builds the entire folder path provided by the user. If the path do
 
     library(rmsfuns)
     build_path("C:/Temp/data")
+    build_path(paste0("C:/Temp/", c("data", "img", "output")))
+    build_path(paste0("C:/Temp/", list("data", "img", "output")))
 
 ## ViewXL
 
