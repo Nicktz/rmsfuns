@@ -9,7 +9,7 @@
 #' build_path(paste0("C:/Temp/", list("data", "img", "output")))
 #' @export
 
-build_path <- function(FilePath, Silent = TRUE) {
+build_path <- function(FilePath, silent = TRUE) {
 
   PathBuilder <- function(FP) {
     if (!file.exists(FP)) {
@@ -20,17 +20,24 @@ build_path <- function(FilePath, Silent = TRUE) {
 
   if(is.list(FilePath)) FilePath <- unlist(FilePath)
 
+  not_created <- list()
   for(i in 1:length(FilePath)){
     if(!dir.exists(file.path(FilePath[i]))){
       PathBuilder(FP = FilePath[i])
-      if(Silent == FALSE) {
+      if(silent == FALSE) {
         message(paste0(FilePath[i], " - successfully created"))
       }
     } else {
-      if(Silent == FALSE) {
-        message(paste0(FilePath[i], " - alread exists, not created"))
-      }
+      not_created[[i]] <- i
     }
   }
 
+  # deal with not created
+  if(silent == FALSE & length(not_created) != 0) {
+    message("------------------------")
+    for(i in unlist(not_created)){
+      message(paste0(FilePath[i], " - alread exists, not created"))
+    }
+    message("------------------------")
+  }
 }
