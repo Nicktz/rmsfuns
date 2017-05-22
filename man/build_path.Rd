@@ -15,9 +15,10 @@ build_path(FilePath, Silent = TRUE)
 Path address just built.
 }
 \description{
-build_path builds the entire folder FilePath provided. If the FilePath does not exist, it builds it without error. It is effectively a user-friendly wrapper to the base function dir.create.
+build_path builds the entire folder FilePath provided. If the FilePath does not exist, it builds it without error. It is effectively an extension to the base function dir.create.
 }
 \examples{
-build_path("C:/Temp/data")
+Path <- build_path("C:/Temp/data")
+Pathmultiplecreate <- build_path(paste0("C:/Temp/data", c("XXX", "YYY")))
 }
 

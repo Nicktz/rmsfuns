@@ -7,7 +7,7 @@
 PromptAsTime(On)
 }
 \arguments{
-\item{Set}{On to TRUE (Add time to prompter) or FALSE (use default prompter).}
+\item{On}{set On to TRUE (Add time to prompter) or FALSE (use default prompter).}
 }
 \value{
 The Prompter in Rstudio will now include the time.
@@ -16,6 +16,12 @@ The Prompter in Rstudio will now include the time.
 This changes Rstudio's prompt at the bottom to reflect time. Useful for timing functions with ease.
 }
 \examples{
+\donttest{
 PromptAsTime(TRUE)
+x <- 100
+Sys.sleep(3)
+#' x*x
+print(x)
+}
 }
 

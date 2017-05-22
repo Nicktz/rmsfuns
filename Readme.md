@@ -3,13 +3,6 @@ Introduction
 
 This package contains several helper functions for use in data manipulation, folder creation and viewing purposes. See examples of such functions below.
 
-To install this package, run:
-
-    if (!require("devtools")) install.packages("devtools")
-    library(devtools)
-    devtools::install_github("Nicktz/rmsfuns")
-    library(rmsfuns)
-
 build\_path
 -----------
 
@@ -69,13 +62,21 @@ To set the timer on, type:
 
 The time for each command will now be shown in Rstudio's prompt.
 
-To set the prompt timer off, type:
+This is particularly useful for when you want to see, after running a code script in Rstudio, what the duration of each line was. E.g., run the following in your Rstudio console:
 
+    PromptAsTime(TRUE)
+    x <- 100
+    Sys.sleep(3) 
+    x*x
+    print(x)
     PromptAsTime(FALSE)
+
+You can then see in the prompt that the Sys.sleep(3) call lasted 3 seconds.
 
 load\_pkg
 ---------
 
 This function loads a vector of packages into R, and installs the package if it has not yet been installed.
 
-    load_pkg(c("ggplot2", "dplyr"))
+    Packages <- c("xts", "dplyr")
+    load_pkg(Packages)

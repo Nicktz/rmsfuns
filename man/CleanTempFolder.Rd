@@ -4,16 +4,13 @@
 \alias{CleanTempFolder}
 \title{CleanTempFolder}
 \usage{
-CleanTempFolder(RTempFileLocation)
-}
-\arguments{
-\item{User}{Name. If left blank it will use the location defined by tempdir() in R. Else, manually define where temporary R files are stored.}
+CleanTempFolder()
 }
 \value{
-CLeaned R Temp Folder.
+Cleaned R Temp Folder.
 }
 \description{
-This function will clean all the Rtmp files created. This might take a while to clean if not done regularly. This can be used to clean the R temporary folder specifically when using ViewXL.
+This function will clean all the csv files created using ViewXL in the temp folder. This might take a while to clean if not done regularly.
 }
 \examples{
 CleanTempFolder()

@@ -27,6 +27,19 @@ Path address just built.
 dateconverter makes it easy to create a date vector in R. It offers a simple wrapper using xts functionality to create a vector of dates between a given Start and End date, and then correcting for the chosen frequency transformation.
 }
 \examples{
-dateconverter(as.Date("2000-01-01), as.Date("2017-01-01), "weekdayEOM")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "weekdays")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "calendarEOM")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "weekdayEOW")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "weekdayEOM")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "weekdayEOQ")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "weekdayEOY")
+dateconverter(as.Date("2000-01-01"),
+as.Date("2017-01-01"), "alldays")
 }
 

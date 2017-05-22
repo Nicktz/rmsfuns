@@ -1,8 +1,15 @@
 #' @title PromptAsTime
 #' @description This changes Rstudio's prompt at the bottom to reflect time. Useful for timing functions with ease.
 #' @return The Prompter in Rstudio will now include the time.
-#' @param Set On to TRUE (Add time to prompter) or FALSE (use default prompter).
-#' @examples PromptAsTime(TRUE)
+#' @param On set On to TRUE (Add time to prompter) or FALSE (use default prompter).
+#' @examples
+#' \donttest{
+#' PromptAsTime(TRUE)
+#' x <- 100
+#' Sys.sleep(3)
+#' #' x*x
+#' print(x)
+#' }
 #' @export
 
 PromptAsTime <- function(On) {

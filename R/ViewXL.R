@@ -6,12 +6,16 @@
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
 #' @param mac FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.
 #' @return Chosen data frame or tbl_df opened directly in excel.
-#' @examples ViewXL(data.frame)
+#' @importFrom readr write_csv
+#' @examples
+#' \donttest{df <- data.frame( date = seq(
+#' as.Date("2012-01-01"),
+#' as.Date("2015-08-18"),"day"),
+#' x = rnorm(1326, 10,2))
+#' ViewXL(df)}
 #' @export
 
 ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE) {
-
-  library(tidyverse)
 
   if ( missing(FilePath) ) {
     FilePath <- paste0(tempfile(), ".csv")
@@ -21,7 +25,8 @@ ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FAL
 
       FileName <- readline(cat("--------------- \n PROMPT: \n \n Please provide a csv filename to proceed... \n \n"))
       if(!grepl(".csv", FileName)) FileName <- paste0(FileName, ".csv")
-      }
+    }
+
   build_path(file.path(FilePath))
   write_csv(DataFrame,paste0(FilePath, FileName))
 }

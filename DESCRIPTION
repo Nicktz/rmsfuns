@@ -1,17 +1,25 @@
 Package: rmsfuns
-Title: rmsfuns is a collection of miscellaneous functions that can be used in R. 
+Title: A Collection of Useful Miscellaneous Wrapper Functions
 Version: 0.0.0.1
 Authors@R: person("Nico", "Katzke", email = "nfkatzke@gmail.com", role = c("aut", "cre"))
-Description: rmsfuns is a collection of miscellaneous functions that can be used in R. 
-    It contains several helper functions, including easily building folder paths, viewing dataframes 
-	in excel, and several others.
+Description: rmsfuns is a collection of miscellaneous functions that can be
+    used in R. It contains several helper functions, including easily building
+    folder paths, viewing dataframes in excel, converting date vectors, changing the
+    console prompt to time, and several others.
 Maintainer: Nico Katzke <nfkatzke@gmail.com>
 Imports:
-    tidyverse,
-    xts
+    dplyr,
+    zoo,
+    utils,
+    xts,
+    magrittr,
+    purrr,
+    readr
 Suggests:
-	lubridate
-Depends: R (>= 3.2.1)
+    lubridate,
+    knitr
+Depends:
+    R (>= 3.2.1)
 License: GPL-3
 LazyData: TRUE
 VignetteBuilder: knitr

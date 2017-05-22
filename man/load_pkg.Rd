@@ -16,6 +16,7 @@ Packages loaded into R
 load_pkg Loads a list of packages. If a package requires installation, the function will install it from CRAN.
 }
 \examples{
-load_pkg(c("ggplot2", "dplyr"))
+\donttest{packagelist <- c("purrr", "readr")
+load_pkg(packagelist)}
 }
 

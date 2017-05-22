@@ -24,6 +24,10 @@ Chosen data frame or tbl_df opened directly in excel.
 Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
 }
 \examples{
-ViewXL(data.frame)
+\donttest{df <- data.frame( date = seq(
+as.Date("2012-01-01"),
+as.Date("2015-08-18"),"day"),
+x = rnorm(1326, 10,2))
+ViewXL(df)}
 }
 

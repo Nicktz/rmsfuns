@@ -11,13 +11,27 @@
 #' weekdayEOQ: All last weekdays of the quarter between the start and end date
 #' weekdayEOY: All last weekdays of the year between the start and end date
 #' @return Path address just built.
-#' @examples dateconverter(as.Date("2000-01-01), as.Date("2017-01-01), "weekdayEOM")
+#' @import xts
+#' @importFrom zoo index
+#' @importFrom magrittr %>%
+#' @examples
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "weekdays")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "calendarEOM")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "weekdayEOW")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "weekdayEOM")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "weekdayEOQ")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "weekdayEOY")
+#' dateconverter(as.Date("2000-01-01"),
+#' as.Date("2017-01-01"), "alldays")
 #' @export
 
 dateconverter <- function(StartDate, EndDate, Transform) {
-
-  library(tidyverse) # Using pipes
-  library(xts)       # Nice functions for date manipulation
 
   if( class(StartDate) != "Date" ) stop("Please provide a valid as.Date object for the Start Date")
   if( class(EndDate) != "Date" ) stop("Please provide a valid as.Date object for the End Date")
@@ -33,8 +47,9 @@ dateconverter <- function(StartDate, EndDate, Transform) {
       D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
       vectordates <-
         as.xts(data.frame("X" = rep(1, length(D))),
-               order.by = D) %>%
-        .[endpoints(.,'months')] %>% index(.)
+               order.by = D)
+      vectordates <-
+        vectordates[endpoints(vectordates,'months')] %>% index()
 
     } else
 
@@ -43,8 +58,9 @@ dateconverter <- function(StartDate, EndDate, Transform) {
         D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
         vectordates <-
         as.xts(data.frame("X" = rep(1, length(D))),
-               order.by = D) %>%
-          .[.indexwday(.) %in% 1:5] %>% index(.)
+               order.by = D)
+        vectordates <-
+          vectordates[.indexwday(vectordates) %in% 1:5] %>% index()
 
       } else
 
@@ -52,9 +68,11 @@ dateconverter <- function(StartDate, EndDate, Transform) {
           D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
           vectordates <-
             as.xts(data.frame("X" = rep(1, length(D))),
-                   order.by = D) %>%
-            .[.indexwday(.) %in% 1:5] %>%
-            .[endpoints(.,'weeks')] %>% index(.)
+                   order.by = D)
+          vectordates <-
+            vectordates[.indexwday(vectordates) %in% 1:5]
+          vectordates <-
+            vectordates[endpoints(vectordates,'weeks')] %>% index()
 
         } else
 
@@ -62,9 +80,11 @@ dateconverter <- function(StartDate, EndDate, Transform) {
             D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
             vectordates <-
               as.xts(data.frame("X" = rep(1, length(D))),
-                     order.by = D) %>%
-              .[.indexwday(.) %in% 1:5] %>%
-              .[endpoints(.,'months')] %>% index(.)
+                     order.by = D)
+            vectordates <-
+              vectordates[.indexwday(vectordates) %in% 1:5]
+            vectordates <-
+              vectordates[endpoints(vectordates,'months')] %>% index()
 
           }  else
 
@@ -73,9 +93,13 @@ dateconverter <- function(StartDate, EndDate, Transform) {
               D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
               vectordates <-
                 as.xts(data.frame("X" = rep(1, length(D))),
-                       order.by = D) %>%
-                .[.indexwday(.) %in% 1:5] %>%
-                .[endpoints(.,'quarters')] %>% index(.)
+                       order.by = D)
+              vectordates <-
+                vectordates[.indexwday(vectordates) %in% 1:5]
+
+              vectordates <-
+                vectordates[endpoints(vectordates,'quarters')] %>% index()
+
             } else
 
               if (Transform == "weekdayEOY") {
@@ -83,9 +107,13 @@ dateconverter <- function(StartDate, EndDate, Transform) {
                 D <- as.Date(seq(StartDate, EndDate, by = "1 day"))
                 vectordates <-
                   as.xts(data.frame("X" = rep(1, length(D))),
-                         order.by = D) %>%
-                  .[.indexwday(.) %in% 1:5] %>%
-                  .[endpoints(.,'years')] %>% index(.)
+                         order.by = D)
+                vectordates <-
+                  vectordates[.indexwday(vectordates) %in% 1:5]
+
+                vectordates <-
+                  vectordates[endpoints(vectordates,'years')] %>% index()
+
               } else
                 stop(cat("Invalid Transform Input. \n Available options are: \n AllDays ; calendarEOM ; weekdays ; weekdayEOW ; weekdayEOM ; weekdayEOQ ; weekdayEOY") )
 
