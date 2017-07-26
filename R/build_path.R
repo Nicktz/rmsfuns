@@ -14,7 +14,7 @@ build_path <- function(FilePath, Silent = TRUE) {
   PathBuilder <- function(FP) {
     if (!file.exists(FP)) {
       PathBuilder(dirname(FP))
-      dir.create(FP)
+      dir.create(FP, showWarnings = FALSE)
     }
   }
 

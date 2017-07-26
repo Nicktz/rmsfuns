@@ -19,4 +19,3 @@ load_pkg Loads a list of packages. If a package requires installation, the funct
 \donttest{packagelist <- c("purrr", "readr")
 load_pkg(packagelist)}
 }
-

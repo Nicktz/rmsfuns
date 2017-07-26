@@ -30,4 +30,3 @@ as.Date("2015-08-18"),"day"),
 x = rnorm(1326, 10,2))
 ViewXL(df)}
 }
-

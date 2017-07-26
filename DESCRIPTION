@@ -23,4 +23,4 @@ Depends:
 License: GPL-3
 LazyData: TRUE
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

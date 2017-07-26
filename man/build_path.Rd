@@ -21,4 +21,3 @@ build_path builds the entire folder FilePath provided. If the FilePath does not 
 Path <- build_path("C:/Temp/data")
 Pathmultiplecreate <- build_path(paste0("C:/Temp/data", c("XXX", "YYY")))
 }
-

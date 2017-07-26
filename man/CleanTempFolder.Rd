@@ -15,4 +15,3 @@ This function will clean all the csv files created using ViewXL in the temp fold
 \examples{
 CleanTempFolder()
 }
-

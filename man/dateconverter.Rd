@@ -42,4 +42,3 @@ as.Date("2017-01-01"), "weekdayEOY")
 dateconverter(as.Date("2000-01-01"),
 as.Date("2017-01-01"), "alldays")
 }
-
