@@ -1,5 +1,5 @@
 Package: rmsfuns
-Title: A Collection of Useful Miscellaneous Wrapper Functions
+Title: A Collection of Miscellaneous R Wrapper Functions
 Version: 0.0.0.1
 Authors@R: person("Nico", "Katzke", email = "nfkatzke@gmail.com", role = c("aut", "cre"))
 Description: rmsfuns is a collection of miscellaneous functions that can be
@@ -8,7 +8,7 @@ Description: rmsfuns is a collection of miscellaneous functions that can be
     console prompt to time, and several others.
 Maintainer: Nico Katzke <nfkatzke@gmail.com>
 Imports:
-    dplyr,
+    tidyverse,
     zoo,
     utils,
     xts,
@@ -16,11 +16,16 @@ Imports:
     purrr,
     readr
 Suggests:
-    lubridate,
-    knitr
+    lubridate
 Depends:
     R (>= 3.2.1)
 License: GPL-3
 LazyData: TRUE
-VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+Suggests:
+    knitr,
+    rmarkdown
+Repository: CRAN
+NeedsCompilation: yes
+ByteCompile: yes
+VignetteBuilder: knitr

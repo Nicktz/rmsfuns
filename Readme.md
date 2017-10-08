@@ -23,8 +23,11 @@ ViewXL
 This function makes it easy to quickly view any R object or dataframe in excel. A random file is created in R's temporary folder location (see tempdir() to find your location). The excel file location can also be overridden using the FilePath command. IMPORTANT: if using a mac, set mac = TRUE in the command (equal to FALSE by default).
 
     library(rmsfuns)
-    df <- data.frame(date = seq(as.Date("2012-01-01"),
-                            as.Date("2015-08-18"),"day"), x = rnorm(1326, 10,2))
+    df <- data.frame(date = 
+    seq(as.Date("2012-01-01"),
+    as.Date("2015-08-18"),"day"), 
+    x = rnorm(1326, 10,2))
+
     ViewXL(df)
     # ViewXL(df, mac = TRUE) if using a mac
 
@@ -78,5 +81,5 @@ load\_pkg
 
 This function loads a vector of packages into R, and installs the package if it has not yet been installed.
 
-    Packages <- c("xts", "dplyr")
+    Packages <- c("xts", "tidyverse")
     load_pkg(Packages)

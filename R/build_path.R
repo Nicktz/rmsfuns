@@ -4,6 +4,7 @@
 #' @param Silent True by default, if set to FALSE it shows the address of the folder just created. This is, however, saved if used as: Path <- build_path(FilePath), making the message largely redundant.
 #' @return Path address just built.
 #' @importFrom purrr map map_int
+#' @importFrom magrittr %>%
 #' @examples
 #' Path <- build_path("C:/Temp/data")
 #' Pathmultiplecreate <- build_path(paste0("C:/Temp/data", c("XXX", "YYY")))

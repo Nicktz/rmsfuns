@@ -82,7 +82,7 @@ You can then see in the prompt that the Sys.sleep(3) call lasted 3 seconds.
 
 This function loads a vector of packages into R, and installs the package if it has not yet been installed.
 
-    Packages <- c("xts", "dplyr")
+    Packages <- c("xts", "tidyverse")
     load_pkg(Packages)
     
 
