@@ -1,11 +1,10 @@
 Package: rmsfuns
-Title: A Collection of Miscellaneous R Wrapper Functions
+Title: Quickly View Data Frames in Excel, Build Folder Paths and Create Date Vectors
 Version: 0.0.0.1
 Authors@R: person("Nico", "Katzke", email = "nfkatzke@gmail.com", role = c("aut", "cre"))
-Description: rmsfuns is a collection of miscellaneous functions that can be
-    used in R. It contains several helper functions, including easily building
-    folder paths, viewing dataframes in excel, converting date vectors, changing the
-    console prompt to time, and several others.
+Description: Contains several useful navigation helper functions, including easily building
+    folder paths, quick viewing dataframes in 'Excel', creating date vectors and changing the
+    console prompt to reflect time.
 Maintainer: Nico Katzke <nfkatzke@gmail.com>
 Imports:
     tidyverse,
