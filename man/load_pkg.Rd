@@ -13,7 +13,7 @@ load_pkg(packagelist)
 Packages loaded into R
 }
 \description{
-load_pkg Loads a list of packages. If a package requires installation, the function will install it from CRAN.
+load_pkg Loads a list of packages. If a package requires installation, the function will install it from CRAN. Function is a CRAN only wrapper.
 }
 \examples{
 \donttest{packagelist <- c("purrr", "readr")

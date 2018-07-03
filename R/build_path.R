@@ -6,8 +6,9 @@
 #' @importFrom purrr map map_int
 #' @importFrom magrittr %>%
 #' @examples
-#' Path <- build_path("C:/Temp/data")
-#' Pathmultiplecreate <- build_path(paste0("C:/Temp/data", c("XXX", "YYY")))
+#' PathLoc <- tempdir()
+#' Path <- build_path(PathLoc)
+#' Pathmultiplecreate <- build_path(file.path(PathLoc, c("XXX", "YYY")))
 #' @export
 
 build_path <- function(FilePath, Silent = TRUE) {

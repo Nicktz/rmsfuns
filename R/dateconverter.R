@@ -1,7 +1,7 @@
 #' @title dateconverter
 #' @description dateconverter makes it easy to create a date vector in R. It offers a simple wrapper using xts functionality to create a vector of dates between a given Start and End date, and then correcting for the chosen frequency transformation.
 #' @param StartDate A valid as.Date object. This can be given as ymd("2000-01-01") or as.Date("2000-01-01")
-#' @param EndDate True by default, if set to FALSE it shows the address of the folder just created. This is, however, saved if used as: Path <- build_path(FilePath), making the message largely redundant.
+#' @param EndDate A valid as.Date object. This can be given as ymd("2000-01-01") or as.Date("2000-01-01")
 #' @param Transform This is the days that you want returned. Options include:
 #' alldays: All calendar days between the start and end date
 #' calendarEOM: Last calendar day of each month between the start and end date

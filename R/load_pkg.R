@@ -1,5 +1,5 @@
 #' @title load_pkg
-#' @description load_pkg Loads a list of packages. If a package requires installation, the function will install it from CRAN.
+#' @description load_pkg Loads a list of packages. If a package requires installation, the function will install it from CRAN. Function is a CRAN only wrapper.
 #' @param packagelist Vector of packages to load into R
 #' @import tidyverse
 #' @import readr

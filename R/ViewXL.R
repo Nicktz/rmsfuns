@@ -1,7 +1,7 @@
 #' @title ViewXL
 #' @description Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
 #' @param DataFrame This is the dataframe or tbl_df that will be displayed in excel
-#' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be created.
+#' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be saved in specified location.
 #' @param FileName If specified to save csv file, this would be the name. If left blank and a FilePath has been specified, it would prompt the user to add a FileName.
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
 #' @param mac FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.

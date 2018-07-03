@@ -9,7 +9,7 @@ dateconverter(StartDate, EndDate, Transform)
 \arguments{
 \item{StartDate}{A valid as.Date object. This can be given as ymd("2000-01-01") or as.Date("2000-01-01")}
 
-\item{EndDate}{True by default, if set to FALSE it shows the address of the folder just created. This is, however, saved if used as: Path <- build_path(FilePath), making the message largely redundant.}
+\item{EndDate}{A valid as.Date object. This can be given as ymd("2000-01-01") or as.Date("2000-01-01")}
 
 \item{Transform}{This is the days that you want returned. Options include:
 alldays: All calendar days between the start and end date
