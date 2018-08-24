@@ -1,6 +1,8 @@
 Introduction
 ============
 
+![](https://cranlogs.r-pkg.org/badges/rmsfuns?color=brightgreen) ![](https://cranlogs.r-pkg.org/badges/grand-total/rmsfuns?color=brightgreen)
+
 This package contains several helper functions for use in data manipulation, folder creation and viewing purposes. See examples of such functions below.
 
 build\_path
