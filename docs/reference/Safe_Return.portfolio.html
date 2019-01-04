@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CleanTempFolder — CleanTempFolder • rmsfuns</title>
+<title>Safe_Return.portfolio — Safe_Return.portfolio • rmsfuns</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="CleanTempFolder — CleanTempFolder" />
+<meta property="og:title" content="Safe_Return.portfolio — Safe_Return.portfolio" />
 
-<meta property="og:description" content="This function will clean all the csv files created using ViewXL in the temp folder. This might take a while to clean if not done regularly." />
+<meta property="og:description" content="This provides a safe way to do portfolio return calculations.
+It ensures the returns and weights are explicitly mapped.
+It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -95,33 +97,60 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>CleanTempFolder</h1>
+    <h1>Safe_Return.portfolio</h1>
     
-    <div class="hidden name"><code>CleanTempFolder.Rd</code></div>
+    <div class="hidden name"><code>Safe_Return.portfolio.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function will clean all the csv files created using ViewXL in the temp folder. This might take a while to clean if not done regularly.</p>
+    <p>This provides a safe way to do portfolio return calculations.
+It ensures the returns and weights are explicitly mapped.
+It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>CleanTempFolder</span>()</pre>
-        
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Cleaned R Temp Folder.</p>
+    <pre class="usage"><span class='fu'>Safe_Return.portfolio</span>(<span class='no'>R</span>, <span class='no'>weights</span>, <span class='kw'>lag_weights</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>R</th>
+      <td><p>xts of returns.</p></td>
+    </tr>
+    <tr>
+      <th>weights</th>
+      <td><p>xts weights.</p></td>
+    </tr>
+    <tr>
+      <th>lag_weights</th>
+      <td><p>This function makes weights effective on the day it is given. The Return.Portfolio function defaults to having weights become effective only the following day after its specification. E.g. from the vignette:
+Rebalancing periods can be thought of as taking effect immediately after the close of the bar. So, a March 31 rebalancing date will actually be in effect for April 1.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>parameter inputs from PerformanceAnalytics::Return.portfolio.</p></td>
+    </tr>
+    </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>CleanTempFolder</span>()</div><div class='output co'>#&gt; character(0)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>PerformanceAnalytics</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: xts</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: zoo</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: 'zoo'</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:base':</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    as.Date, as.Date.numeric</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: 'PerformanceAnalytics'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:graphics':</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    legend</span></div><div class='input'><span class='fu'>data</span>(<span class='no'>edhec</span>)
+<span class='fu'>data</span>(<span class='no'>weights</span>) <span class='co'># rebalance at the beginning of the year to various weights through time</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>Safe_Return.portfolio</span>(<span class='no'>edhec</span>[,<span class='fl'>1</span>:<span class='fl'>11</span>], <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>weights</span>, <span class='kw'>lag_weights</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#value">Value</a></li>
-      
+      <li><a href="#arguments">Arguments</a></li>
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 

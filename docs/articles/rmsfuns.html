@@ -29,7 +29,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmsfuns</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.2</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.3</span>
       </span>
     </div>
 
@@ -63,7 +63,7 @@
       <h1>rmsfuns</h1>
                         <h4 class="author">Nico Katzke</h4>
             
-            <h4 class="date">2018-08-24</h4>
+            <h4 class="date">2019-01-04</h4>
       
       
       <div class="hidden name"><code>rmsfuns.Rmd</code></div>
@@ -134,6 +134,38 @@ print(x)
 PromptAsTime(FALSE)</code></pre>
 <p>You can then see in the prompt that the Sys.sleep(3) call lasted 3 seconds.</p>
 </div>
+<div id="safe_return-portfolio" class="section level2">
+<h2 class="hasAnchor">
+<a href="#safe_return-portfolio" class="anchor"></a>Safe_Return.portfolio</h2>
+<p>This function provides a safe alternative to do portfolio return calculations using PerformanceAnalytics::Return.portfolio.</p>
+<p>See this gist for where the function fails: <a href="https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c" class="uri">https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c</a></p>
+<div id="problems-with-performanceanalyticsreturn-portfolio" class="section level3">
+<h3 class="hasAnchor">
+<a href="#problems-with-performanceanalyticsreturn-portfolio" class="anchor"></a>Problems with PerformanceAnalytics::Return.portfolio</h3>
+<ul>
+<li>
+<p>For starters, the resulting xts starts on the second day - i.e. it produces weights and returns from the day after the initial weights are provided.</p>
+<ul>
+<li><p>E.g. from the vignette it states: “Rebalancing periods can be thought of as taking effect immediately after the close of the bar. So, a March 31 rebalancing date will actually be in effect for April 1.”</p></li>
+<li><p>In most applications this does not fit with my own personal workflow. If it fit yours, simply set lag_weights = FALSE.</p></li>
+</ul>
+</li>
+<li>
+<p>Second (and most frustratingly) - the function is order dependent.</p>
+<ul>
+<li><p>Thus it does not square stock X, Y and Z for R and weight inputs, but rather considers column orders.</p></li>
+<li><p>This is extremely dangerous - and can easily cause unintended mistakes to enter your calculations.</p></li>
+</ul>
+</li>
+</ul>
+<p>To solve both the above issues - instead use this safer wrapper. The function works otherwise exactly like that of PerformanceAnalytics::Return.portfolio</p>
+<div id="example" class="section level4">
+<h4 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h4>
+<p>See the gist: <a href="https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c" class="uri">https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c</a></p>
+</div>
+</div>
+</div>
 <div id="load_pkg" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load_pkg" class="anchor"></a>load_pkg</h2>
@@ -155,6 +187,7 @@ load_pkg(Packages)</code></pre>
       <li><a href="#viewxl">ViewXL</a></li>
       <li><a href="#dateconverter">dateconverter</a></li>
       <li><a href="#promptastime">PromptAsTime</a></li>
+      <li><a href="#safe_return-portfolio">Safe_Return.portfolio</a></li>
       <li><a href="#load_pkg">load_pkg</a></li>
       </ul>
 </li>
