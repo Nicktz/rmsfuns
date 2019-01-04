@@ -80,6 +80,31 @@ This is particularly useful for when you want to see, after running a code scrip
 
 You can then see in the prompt that the Sys.sleep(3) call lasted 3 seconds.
 
+## Safe_Return.portfolio
+
+This function provides a safe alternative to do portfolio return calculations using PerformanceAnalytics::Return.portfolio. 
+
+See this gist for where the function fails: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
+
+### Problems with PerformanceAnalytics::Return.portfolio
+
+*  For starters, the resulting xts starts on the second day - i.e. it produces weights and returns from the day after the initial weights are provided.
+
+    * E.g. from the vignette it states: "Rebalancing periods can be thought of as taking effect immediately after the close of the bar. So, a March 31 rebalancing date will actually be in effect for April 1."
+
+    * In most applications this does not fit with my own personal workflow. If it fit yours, simply set lag_weights = FALSE.
+
+* Second (and most frustratingly) - the function is order dependent.
+
+    * Thus it does not square stock X, Y and Z for R and weight inputs, but rather considers column orders.
+    
+    * This is extremely dangerous - and can easily cause unintended mistakes to enter your calculations.
+    
+To solve both the above issues - instead use this safer wrapper. The function works otherwise exactly like that of PerformanceAnalytics::Return.portfolio
+
+#### Example
+
+See the gist: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
 
 ## load_pkg
 
