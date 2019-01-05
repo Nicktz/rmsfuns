@@ -2,6 +2,7 @@
 #' @description This provides a safe way to do portfolio return calculations.
 #' It ensures the returns and weights are explicitly mapped.
 #' It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer
+#' @importFrom dplyr mutate
 #' @importFrom magrittr %>%
 #' @importFrom tbl2xts xts_tbl tbl_xts
 #' @importFrom PerformanceAnalytics Return.portfolio
