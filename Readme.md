@@ -146,5 +146,5 @@ load\_pkg
 This function loads a vector of packages into R, and installs the
 package if it has not yet been installed.
 
-    Packages <- c("xts", "tidyverse")
+    Packages <- c("xts", "dplyr")
     load_pkg(Packages)

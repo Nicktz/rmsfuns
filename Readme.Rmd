@@ -110,7 +110,7 @@ See the gist: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
 
 This function loads a vector of packages into R, and installs the package if it has not yet been installed.
 
-    Packages <- c("xts", "tidyverse")
+    Packages <- c("xts", "dplyr")
     load_pkg(Packages)
     
 
