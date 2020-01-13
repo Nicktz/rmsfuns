@@ -15,7 +15,7 @@ ViewXL(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE)
 
 \item{ViewTempFile}{True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.}
 
-\item{mac}{FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.}
+\item{mac}{FALSE by default, set to TRUE if using a Mac, else the base::shell.exec will not work.}
 }
 \value{
 Chosen data frame or tbl_df opened directly in excel.

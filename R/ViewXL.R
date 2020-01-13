@@ -4,7 +4,7 @@
 #' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be saved in specified location.
 #' @param FileName If specified to save csv file, this would be the name. If left blank and a FilePath has been specified, it would prompt the user to add a FileName.
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
-#' @param mac FALSE by default, set to TRUE if using a Mac, else the shell.exec will not work.
+#' @param mac FALSE by default, set to TRUE if using a Mac, else the base::shell.exec will not work.
 #' @return Chosen data frame or tbl_df opened directly in excel.
 #' @importFrom readr write_csv
 #' @examples
@@ -35,7 +35,7 @@ ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FAL
     shell.exec.mac <- function(x){
       # replacement for shell.exe (doesn't exist on Mac). Thanks Christiaan Bothma for picking this up.
       if (exists("shell.exec",where = "package:base"))
-        return(base::shell.exec(x))
+        return(shell.exec(x))
       comm <- paste("open",x)
       return(system(comm))
     }
