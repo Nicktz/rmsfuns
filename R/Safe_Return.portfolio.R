@@ -1,7 +1,9 @@
 #' @title Safe_Return.portfolio
 #' @description This provides a safe way to do portfolio return calculations.
 #' It ensures the returns and weights are explicitly mapped.
-#' It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer
+#' It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer.
+#' See the following gist for a discussion on why this safety feature is essential: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
+#'
 #' @importFrom dplyr mutate
 #' @importFrom magrittr %>%
 #' @importFrom tbl2xts xts_tbl tbl_xts
@@ -20,7 +22,7 @@
 #'
 Safe_Return.portfolio <- function( R, weights, lag_weights = TRUE, ... ) {
 
-  # See: https://gist.github.com/Nicktz/410eefe3995ae131a16a3a2e8899dc0e
+  # See: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
   if( !"xts" %in% class(R) ) stop("\n\nStock returns must be in xts format...\n\n")
   if( !"xts" %in% class(weights) ) stop("\n\nStock weights must be in xts format...\n\n")
   if(ncol(R) > ncol(weights)) stop("\n\nStocks in return dataframe R has more columns than stocks for weights input...\n\n")

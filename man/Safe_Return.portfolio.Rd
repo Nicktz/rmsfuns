@@ -19,7 +19,8 @@ Rebalancing periods can be thought of as taking effect immediately after the clo
 \description{
 This provides a safe way to do portfolio return calculations.
 It ensures the returns and weights are explicitly mapped.
-It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer
+It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer.
+See the following gist for a discussion on why this safety feature is essential: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
 }
 \examples{
 library(PerformanceAnalytics)
