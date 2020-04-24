@@ -1,6 +1,6 @@
 Package: rmsfuns
 Title: Quickly View Data Frames in 'Excel', Build Folder Paths and Create Date Vectors
-Version: 0.0.0.3
+Version: 1.0.0.0
 Authors@R: person("Nico", "Katzke", role = c("aut", "cre"), email = "nfkatzke@gmail.com")
 Description: Contains several useful navigation helper functions, including easily building
     folder paths, quick viewing dataframes in 'Excel', creating date vectors and changing the
@@ -8,15 +8,15 @@ Description: Contains several useful navigation helper functions, including easi
 Maintainer: Nico Katzke <nfkatzke@gmail.com>
 BugReports: https://github.com/nicktz/rmsfuns/issues
 Imports:
-    xts,
-    tbl2xts,
-    zoo,
     utils,
+    readr,
+    purrr, 
     magrittr,
-    purrr,
+    dplyr, 
+    tbl2xts,
     PerformanceAnalytics,
-    dplyr,
-    readr
+    xts,
+    zoo
 Depends:
     R (>= 3.2.1)
 License: GPL-3

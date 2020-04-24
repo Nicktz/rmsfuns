@@ -32,7 +32,10 @@
 
 <meta property="og:title" content="ViewXL — ViewXL" />
 
-<meta property="og:description" content="Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly." />
+<meta property="og:description" content="Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()).
+Works on Windows or Mac OS - not linux
+It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+It is recommended to save the output and use 'unlink' to delete afterwards. See ?ViewXL" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +66,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmsfuns</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.0</span>
       </span>
     </div>
 
@@ -104,7 +107,10 @@
 
     <div class="ref-description">
     
-    <p>Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.</p>
+    <p>Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()).
+Works on Windows or Mac OS - not linux
+It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+It is recommended to save the output and use 'unlink' to delete afterwards. See ?ViewXL</p>
     
     </div>
 
@@ -137,15 +143,19 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Chosen data frame or tbl_df opened directly in excel.</p>
+    <p>File location in promt. Chosen data frame or tbl_df opened directly in excel.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>( <span class='kw'>date</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>( <span class='kw'>date</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.Date'>as.Date</a></span>(<span class='st'>"2012-01-01"</span>),
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.Date'>as.Date</a></span>(<span class='st'>"2015-08-18"</span>),<span class='st'>"day"</span>),
 <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>1326</span>, <span class='fl'>10</span>,<span class='fl'>2</span>))
-<span class='fu'>ViewXL</span>(<span class='no'>df</span>)</div></pre>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>ViewXL</span>(<span class='no'>df</span>)
+<span class='co'># After viewing, it is recommended to delete the temporary file created using:</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/unlink'>unlink</a></span>(<span class='no'>x</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

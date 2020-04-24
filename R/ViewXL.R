@@ -1,18 +1,25 @@
 #' @title ViewXL
-#' @description Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+#' @description Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()).
+#' Works on Windows or Mac OS - not linux
+#' It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+#' It is recommended to save the output and use 'unlink' to delete afterwards. See ?ViewXL
 #' @param DataFrame This is the dataframe or tbl_df that will be displayed in excel
 #' @param FilePath If left blank, tempfile will be used. If specified, the excel files will be saved in specified location.
 #' @param FileName If specified to save csv file, this would be the name. If left blank and a FilePath has been specified, it would prompt the user to add a FileName.
 #' @param ViewTempFile True by default, if False it will not open the excel file, but merely save it. Only useful if provided with a FilePath.
 #' @param mac FALSE by default, set to TRUE if using a Mac, else the base::shell.exec will not work.
-#' @return Chosen data frame or tbl_df opened directly in excel.
+#' @return File location in promt. Chosen data frame or tbl_df opened directly in excel.
 #' @importFrom readr write_csv
 #' @examples
-#' \donttest{df <- data.frame( date = seq(
+#' \dontrun{
+#' df <- data.frame( date = seq(
 #' as.Date("2012-01-01"),
 #' as.Date("2015-08-18"),"day"),
 #' x = rnorm(1326, 10,2))
-#' ViewXL(df)}
+#' x <- ViewXL(df)
+#' # After viewing, it is recommended to delete the temporary file created using:
+#' unlink(x)
+#' }
 #' @export
 
 ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE) {
@@ -45,5 +52,7 @@ ViewXL <- function(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FAL
   if (mac == FALSE & ViewTempFile) {
     shell.exec(paste0(FilePath))
   }
+
+  return(FilePath)
 
 }

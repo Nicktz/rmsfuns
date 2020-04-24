@@ -3,21 +3,22 @@
 #' It ensures the returns and weights are explicitly mapped.
 #' It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it safer.
 #' See the following gist for a discussion on why this safety feature is essential: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
-#'
 #' @importFrom dplyr mutate
 #' @importFrom magrittr %>%
 #' @importFrom tbl2xts xts_tbl tbl_xts
 #' @importFrom PerformanceAnalytics Return.portfolio
 #' @param R xts of returns.
-#' @param ... parameter inputs from PerformanceAnalytics::Return.portfolio.
-#' @param weights xts weights.
+#' @param weights xts of weights.
 #' @param lag_weights This function makes weights effective on the day it is given. The Return.Portfolio function defaults to having weights become effective only the following day after its specification. E.g. from the vignette:
 #' Rebalancing periods can be thought of as taking effect immediately after the close of the bar. So, a March 31 rebalancing date will actually be in effect for April 1.
+#' @param ... parameter inputs from PerformanceAnalytics::Return.portfolio.
 #' @examples
+#' \dontrun{
 #' library(PerformanceAnalytics)
 #' data(edhec)
 #' data(weights) # rebalance at the beginning of the year to various weights through time
 #' x <- Safe_Return.portfolio(edhec[,1:11], weights=weights, lag_weights = TRUE, verbose=TRUE)
+#' }
 #' @export
 #'
 Safe_Return.portfolio <- function( R, weights, lag_weights = TRUE, ... ) {
@@ -33,7 +34,7 @@ Safe_Return.portfolio <- function( R, weights, lag_weights = TRUE, ... ) {
 
   if(lag_weights){
 
-    weights <- weights %>% xts_tbl %>% mutate(date = date - 1) %>% tbl_xts
+    weights <- weights %>% tbl2xts::xts_tbl %>% mutate(date = date - 1) %>% tbl2xts::tbl_xts()
 
   }
 

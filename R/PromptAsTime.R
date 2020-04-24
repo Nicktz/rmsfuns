@@ -3,7 +3,7 @@
 #' @return The Prompter in Rstudio will now include the time.
 #' @param On set On to TRUE (Add time to prompter) or FALSE (use default prompter).
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' PromptAsTime(TRUE)
 #' x <- 100
 #' Sys.sleep(3)

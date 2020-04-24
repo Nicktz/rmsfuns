@@ -9,7 +9,7 @@ Safe_Return.portfolio(R, weights, lag_weights = TRUE, ...)
 \arguments{
 \item{R}{xts of returns.}
 
-\item{weights}{xts weights.}
+\item{weights}{xts of weights.}
 
 \item{lag_weights}{This function makes weights effective on the day it is given. The Return.Portfolio function defaults to having weights become effective only the following day after its specification. E.g. from the vignette:
 Rebalancing periods can be thought of as taking effect immediately after the close of the bar. So, a March 31 rebalancing date will actually be in effect for April 1.}
@@ -23,8 +23,10 @@ It is thus a simple wrapper to PerformanceAnalytics::Return.portfolio making it 
 See the following gist for a discussion on why this safety feature is essential: https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c
 }
 \examples{
+\dontrun{
 library(PerformanceAnalytics)
 data(edhec)
 data(weights) # rebalance at the beginning of the year to various weights through time
 x <- Safe_Return.portfolio(edhec[,1:11], weights=weights, lag_weights = TRUE, verbose=TRUE)
+}
 }

@@ -1,5 +1,5 @@
-Introduction
-============
+
+# Introduction
 
 ![](https://cranlogs.r-pkg.org/badges/rmsfuns?color=brightgreen)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/rmsfuns?color=brightgreen)
@@ -8,8 +8,7 @@ This package contains several helper functions for use in data
 manipulation, folder creation and viewing purposes. See examples of such
 functions below.
 
-build\_path
------------
+## build\_path
 
 This function builds the entire folder path provided by the user. If the
 path does not exist, it builds it without error. It is effectively a
@@ -24,8 +23,7 @@ Can also be used to build a vector of paths:
     Path <- build_path(paste0("C:/Temp/data/", c("SubFolder1", "SubFolder2", "SubFolder3"))
     print(Path)
 
-ViewXL
-------
+## ViewXL
 
 This function makes it easy to quickly view any R object or dataframe in
 excel. A random file is created in R’s temporary folder location (see
@@ -38,18 +36,13 @@ mac = TRUE in the command (equal to FALSE by default).
     seq(as.Date("2012-01-01"),
     as.Date("2015-08-18"),"day"), 
     x = rnorm(1326, 10,2))
-
+    
     ViewXL(df)
+    # After viewing in excel, delete the temporary file:
+    unlink(x)
     # ViewXL(df, mac = TRUE) if using a mac
 
-To clean the R temporary file folder (done periodically if using ViewXL
-often - especially with large excel files), use CleanTempFolder:
-
-    library(rmsfuns)
-    CleanTempFolder()
-
-dateconverter
--------------
+## dateconverter
 
 The dateconverter function makes it easy to create a date vector in R.
 It offers a simple wrapper using xts functionality to create a vector of
@@ -71,8 +64,7 @@ alldays ; calendarEOM ; weekdays ; weekdayEOW ; weekdayEOM ; weekdayEOQ
     dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOQ")
     dates <- dateconverter(as.Date("2000-01-01"), as.Date("2017-01-01"), "weekdayEOY")
 
-PromptAsTime
-------------
+## PromptAsTime
 
 To change R’s prompt to reflect the time, use the PromptAsTime function.
 This can be used as a simple means of timing long calculations without
@@ -100,35 +92,34 @@ the following in your Rstudio console:
 You can then see in the prompt that the Sys.sleep(3) call lasted 3
 seconds.
 
-Safe\_Return.portfolio
-----------------------
+## Safe\_Return.portfolio
 
 This function provides a safe alternative to do portfolio return
 calculations using PerformanceAnalytics::Return.portfolio.
 
 See this gist for where the function fails:
-<a href="https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c" class="uri">https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c</a>
+<https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c>
 
 ### Problems with PerformanceAnalytics::Return.portfolio
 
--   For starters, the resulting xts starts on the second day - i.e. it
+  - For starters, the resulting xts starts on the second day - i.e. it
     produces weights and returns from the day after the initial weights
     are provided.
-
-    -   E.g. from the vignette it states: “Rebalancing periods can be
+    
+      - E.g. from the vignette it states: “Rebalancing periods can be
         thought of as taking effect immediately after the close of the
         bar. So, a March 31 rebalancing date will actually be in effect
         for April 1.”
-
-    -   In most applications this does not fit with my own personal
+    
+      - In most applications this does not fit with my own personal
         workflow. If it fit yours, simply set lag\_weights = FALSE.
 
--   Second (and most frustratingly) - the function is order dependent.
-
-    -   Thus it does not square stock X, Y and Z for R and weight
+  - Second (and most frustratingly) - the function is order dependent.
+    
+      - Thus it does not square stock X, Y and Z for R and weight
         inputs, but rather considers column orders.
-
-    -   This is extremely dangerous - and can easily cause unintended
+    
+      - This is extremely dangerous - and can easily cause unintended
         mistakes to enter your calculations.
 
 To solve both the above issues - instead use this safer wrapper. The
@@ -138,10 +129,9 @@ PerformanceAnalytics::Return.portfolio
 #### Example
 
 See the gist:
-<a href="https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c" class="uri">https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c</a>
+<https://gist.github.com/Nicktz/a24ba1775d41aab85919c505ca1b9a0c>
 
-load\_pkg
----------
+## load\_pkg
 
 This function loads a vector of packages into R, and installs the
 package if it has not yet been installed.

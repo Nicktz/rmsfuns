@@ -1,7 +1,5 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 # Introduction 
@@ -35,12 +33,9 @@ This function makes it easy to quickly view any R object or dataframe in excel. 
     x = rnorm(1326, 10,2))
     
     ViewXL(df)
+    # After viewing in excel, delete the temporary file:
+    unlink(x)
     # ViewXL(df, mac = TRUE) if using a mac
-
-To clean the R temporary file folder (done periodically if using ViewXL often - especially with large excel files), use CleanTempFolder:
-
-    library(rmsfuns)
-    CleanTempFolder()
     
 ## dateconverter
 

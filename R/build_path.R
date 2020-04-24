@@ -6,9 +6,11 @@
 #' @importFrom purrr map map_int
 #' @importFrom magrittr %>%
 #' @examples
+#' \dontrun{
 #' PathLoc <- tempdir()
 #' Path <- build_path(PathLoc)
 #' Pathmultiplecreate <- build_path(file.path(PathLoc, c("XXX", "YYY")))
+#' }
 #' @export
 
 build_path <- function(FilePath, Silent = TRUE) {

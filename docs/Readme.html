@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rmsfuns</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.0</span>
       </span>
     </div>
 
@@ -123,10 +123,9 @@
 <a class="sourceLine" id="cb3-5" title="5"><span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">1326</span>, <span class="dv">10</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb3-6" title="6"></a>
 <a class="sourceLine" id="cb3-7" title="7"><span class="kw"><a href="reference/ViewXL.html">ViewXL</a></span>(df)</a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co"># ViewXL(df, mac = TRUE) if using a mac</span></a></code></pre></div>
-<p>To clean the R temporary file folder (done periodically if using ViewXL often - especially with large excel files), use CleanTempFolder:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rmsfuns)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="reference/CleanTempFolder.html">CleanTempFolder</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co"># After viewing in excel, delete the temporary file:</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(x)</a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co"># ViewXL(df, mac = TRUE) if using a mac</span></a></code></pre></div>
 </div>
 <div id="dateconverter" class="section level2">
 <h2 class="hasAnchor">
@@ -134,29 +133,29 @@
 <p>The dateconverter function makes it easy to create a date vector in R. It offers a simple wrapper using xts functionality to create a vector of dates between a given Start and End date, and then correcting for the chosen frequency transformation.</p>
 <p>It can do the following transformations between given Start and End Dates:</p>
 <p>alldays ; calendarEOM ; weekdays ; weekdayEOW ; weekdayEOM ; weekdayEOQ ; weekdayEOY</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rmsfuns)</a>
-<a class="sourceLine" id="cb5-2" title="2">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"alldays"</span>) </a>
-<a class="sourceLine" id="cb5-3" title="3">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdays"</span>) </a>
-<a class="sourceLine" id="cb5-4" title="4">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"calendarEOM"</span>)</a>
-<a class="sourceLine" id="cb5-5" title="5">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOW"</span>)</a>
-<a class="sourceLine" id="cb5-6" title="6">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOM"</span>)</a>
-<a class="sourceLine" id="cb5-7" title="7">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOQ"</span>)</a>
-<a class="sourceLine" id="cb5-8" title="8">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOY"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rmsfuns)</a>
+<a class="sourceLine" id="cb4-2" title="2">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"alldays"</span>) </a>
+<a class="sourceLine" id="cb4-3" title="3">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdays"</span>) </a>
+<a class="sourceLine" id="cb4-4" title="4">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"calendarEOM"</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOW"</span>)</a>
+<a class="sourceLine" id="cb4-6" title="6">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOM"</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOQ"</span>)</a>
+<a class="sourceLine" id="cb4-8" title="8">dates &lt;-<span class="st"> </span><span class="kw"><a href="reference/dateconverter.html">dateconverter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2000-01-01"</span>), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.Date">as.Date</a></span>(<span class="st">"2017-01-01"</span>), <span class="st">"weekdayEOY"</span>)</a></code></pre></div>
 </div>
 <div id="promptastime" class="section level2">
 <h2 class="hasAnchor">
 <a href="#promptastime" class="anchor"></a>PromptAsTime</h2>
 <p>To change R’s prompt to reflect the time, use the PromptAsTime function. This can be used as a simple means of timing long calculations without using sys.time() commands. This can be very useful if running, e.g., many functions overnight, and later viewing the time taken on multiple calculations.</p>
 <p>To set the timer on, type:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">TRUE</span>)</a></code></pre></div>
 <p>The time for each command will now be shown in Rstudio’s prompt.</p>
 <p>This is particularly useful for when you want to see, after running a code script in Rstudio, what the duration of each line was. E.g., run the following in your Rstudio console:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2">x &lt;-<span class="st"> </span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">3</span>) </a>
-<a class="sourceLine" id="cb7-4" title="4">x<span class="op">*</span>x</a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(x)</a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2">x &lt;-<span class="st"> </span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">3</span>) </a>
+<a class="sourceLine" id="cb6-4" title="4">x<span class="op">*</span>x</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(x)</a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="kw"><a href="reference/PromptAsTime.html">PromptAsTime</a></span>(<span class="ot">FALSE</span>)</a></code></pre></div>
 <p>You can then see in the prompt that the Sys.sleep(3) call lasted 3 seconds.</p>
 </div>
 <div id="safe_returnportfolio" class="section level2">
@@ -195,8 +194,8 @@
 <h2 class="hasAnchor">
 <a href="#load_pkg" class="anchor"></a>load_pkg</h2>
 <p>This function loads a vector of packages into R, and installs the package if it has not yet been installed.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">Packages &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"xts"</span>, <span class="st">"dplyr"</span>)</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="kw"><a href="reference/load_pkg.html">load_pkg</a></span>(Packages)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">Packages &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"xts"</span>, <span class="st">"dplyr"</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw"><a href="reference/load_pkg.html">load_pkg</a></span>(Packages)</a></code></pre></div>
 </div>
 </div>
 

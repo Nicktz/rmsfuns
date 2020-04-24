@@ -18,15 +18,22 @@ ViewXL(DataFrame, FilePath, FileName, ViewTempFile = TRUE, mac = FALSE)
 \item{mac}{FALSE by default, set to TRUE if using a Mac, else the base::shell.exec will not work.}
 }
 \value{
-Chosen data frame or tbl_df opened directly in excel.
+File location in promt. Chosen data frame or tbl_df opened directly in excel.
 }
 \description{
-Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()). It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+Views a data.frame or tbl_df object in excel, by saving it in R's temporary file directory (see: tempdir()).
+Works on Windows or Mac OS - not linux
+It will automatically open the excel sheet. User has the choice too of overriding the file location by setting the FilePath directly.
+It is recommended to save the output and use 'unlink' to delete afterwards. See ?ViewXL
 }
 \examples{
-\donttest{df <- data.frame( date = seq(
+\dontrun{
+df <- data.frame( date = seq(
 as.Date("2012-01-01"),
 as.Date("2015-08-18"),"day"),
 x = rnorm(1326, 10,2))
-ViewXL(df)}
+x <- ViewXL(df)
+# After viewing, it is recommended to delete the temporary file created using:
+unlink(x)
+}
 }

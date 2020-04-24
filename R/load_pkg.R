@@ -4,7 +4,7 @@
 #' @import readr
 #' @importFrom utils install.packages installed.packages
 #' @examples
-#' \donttest{packagelist <- c("purrr", "readr")
+#' \dontrun{packagelist <- c("purrr", "readr")
 #' load_pkg(packagelist)}
 #' @return Packages loaded into R
 #' @export

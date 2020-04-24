@@ -66,7 +66,7 @@ See the following gist for a discussion on why this safety feature is essential:
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmsfuns</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.0</span>
       </span>
     </div>
 
@@ -125,7 +125,7 @@ See the following gist for a discussion on why this safety feature is essential:
     </tr>
     <tr>
       <th>weights</th>
-      <td><p>xts weights.</p></td>
+      <td><p>xts of weights.</p></td>
     </tr>
     <tr>
       <th>lag_weights</th>
@@ -140,15 +140,12 @@ Rebalancing periods can be thought of as taking effect immediately after the clo
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>PerformanceAnalytics</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: package 'PerformanceAnalytics' was built under R version 3.6.1</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: xts</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: zoo</span></div><div class='output co'>#&gt; <span class='warning'>Warning: package 'zoo' was built under R version 3.6.1</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: 'zoo'</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from 'package:base':</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    as.Date, as.Date.numeric</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: 'PerformanceAnalytics'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:graphics':</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    legend</span></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>edhec</span>)
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>PerformanceAnalytics</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>edhec</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>weights</span>) <span class='co'># rebalance at the beginning of the year to various weights through time</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>Safe_Return.portfolio</span>(<span class='no'>edhec</span>[,<span class='fl'>1</span>:<span class='fl'>11</span>], <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>weights</span>, <span class='kw'>lag_weights</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>)</div></pre>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>Safe_Return.portfolio</span>(<span class='no'>edhec</span>[,<span class='fl'>1</span>:<span class='fl'>11</span>], <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>weights</span>, <span class='kw'>lag_weights</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

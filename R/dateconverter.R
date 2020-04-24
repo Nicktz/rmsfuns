@@ -15,6 +15,7 @@
 #' @importFrom zoo index
 #' @importFrom magrittr %>%
 #' @examples
+#' \dontrun{
 #' dateconverter(as.Date("2000-01-01"),
 #' as.Date("2017-01-01"), "weekdays")
 #' dateconverter(as.Date("2000-01-01"),
@@ -29,6 +30,7 @@
 #' as.Date("2017-01-01"), "weekdayEOY")
 #' dateconverter(as.Date("2000-01-01"),
 #' as.Date("2017-01-01"), "alldays")
+#' }
 #' @export
 
 dateconverter <- function(StartDate, EndDate, Transform) {

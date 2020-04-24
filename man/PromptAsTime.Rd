@@ -16,7 +16,7 @@ The Prompter in Rstudio will now include the time.
 This changes Rstudio's prompt at the bottom to reflect time. Particularly useful for timing functions when executing long scripts.
 }
 \examples{
-\donttest{
+\dontrun{
 PromptAsTime(TRUE)
 x <- 100
 Sys.sleep(3)
