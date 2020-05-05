@@ -34,7 +34,7 @@ Safe_Return.portfolio <- function( R, weights, lag_weights = TRUE, ... ) {
 
   if(lag_weights){
 
-    weights <- weights %>% tbl2xts::xts_tbl %>% mutate(date = date - 1) %>% tbl2xts::tbl_xts()
+    weights <- weights %>% tbl2xts::xts_tbl() %>% mutate(date = date - 1) %>% tbl2xts::tbl_xts()
 
   }
 
